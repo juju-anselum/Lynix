@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(180deg, hsl(240, 60%, 93%) 0%, hsl(9, 59%, 93%) 100%);
+}
+
+.main:after {
+  content: "";
+  background-image: url("/src/assets/grid.svg");
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  filter: invert(1);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.gradient_text {
+  background-image: linear-gradient(to bottom right,
+      #aa7065 20%,
+      #795048 50%,
+      #aa7065 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
