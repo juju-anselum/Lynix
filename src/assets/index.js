@@ -5,7 +5,7 @@ import logo from './logo.svg'
 import tick from './tick.svg'
 import logoImg from './logo.png'
 import returnSvg from './returnSvg.svg'
-import deleteSVG from './deleteSVG.svg'
+import deleteSVG from './deleteSvg.svg'
 
 export {
     linkIcon,
