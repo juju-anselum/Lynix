@@ -16,7 +16,7 @@ export default {
         'secondaryColor': '#f8e7e4',
         'secondaryAccentColor': '#df9385',
         'black-700': '#262626',
-        'black-500': '#929292',
+        'black-500': '#313131',
         'white-700': '#cccccc',
         'white-500': '#f2f2f2',
       }
