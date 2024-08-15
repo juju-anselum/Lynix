@@ -42,7 +42,15 @@ Make sure you have the following installed on your system:
    yarn install
    ```
 
-3. **Run the Development Server**
+3. **Update the Environment Variables**
+
+   Rename the `.env.example` file to `.env`
+   
+   Get your rapidApi key from [Article Extractor and Summarizer](https://rapidapi.com/restyler/api/article-extractor-and-summarizer/playground/apiendpoint_99e4b95c-3adc-4532-8b4e-20795c3c996a)
+
+   Update the `VITE_RAPID_API_SUMMARIZE_API` key by your key.
+
+4. **Run the Development Server**
 
    Start the Vite development server to run the app locally:
 
@@ -103,19 +111,20 @@ Here's a quick overview of the project's structure:
 ```
 snapify/
 │
-├── public/          # Public assets
-├── src/             # Source code
-│   ├── assets/      # Images, icons, etc.
-│   ├── components/  # Reusable components
-│   ├── containers/  # Containers for webpage
-│   ├── App.jsx      # Root component
-│   └── index.js     # Entry point
-│
-├── .gitignore       # Files to be ignored by Git
-├── index.html       # Main HTML template
-├── package.json     # Project dependencies and scripts
-├── README.md        # Project documentation
-└── vite.config.js   # Vite configuration
+├── src/                # Source code
+│   ├── assets/         # Images, icons, etc.
+│   ├── components/     # Reusable components
+│   ├── containers/     # Containers for webpage
+│   ├── services/       # Redux services
+│   ├── App.jsx         # Root component
+│   └── main.jsx        # Entry point
+│  
+├── .gitignore          # Files to be ignored by Git
+├── index.html          # Main HTML template
+├── package.json        # Project dependencies and scripts
+├── README.md           # Project documentation
+└── tailwind.config.js  # Tailwind configuration
+└── vite.config.js      # Vite configuration
 ```
 
 ## Contributing
