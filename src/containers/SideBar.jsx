@@ -36,7 +36,7 @@ const SideBar = () => {
 							<div
 								key={i}
 								className={`w-full px-1 overflow-clip whitespace-nowrap rounded-md cursor-pointer hover:bg-[rgba(30,30,30,0.08)] ${currentArticle[0]?.url === article.url ? 'bg-[rgba(30,30,30,0.12)]' : 'bg-transparent'}`}
-								onClick={() => dispatch(setCurrentArticle(article.url))}
+								onClick={() => {dispatch(setCurrentArticle(article.url))}}
 							>
 								<p className='text-base lg:text-lg p-2'>{article?.title ? article.title : article.url}</p>
 							</div>

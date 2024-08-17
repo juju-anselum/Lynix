@@ -1,14 +1,17 @@
-import { useSelector } from "react-redux"
-import { logo, logoSvg, returnSvg, sideBarSvg } from "../assets"
+import { useDispatch, useSelector } from "react-redux"
+import { createNewArticle } from "../services/articles"
+import { logo, logoSvg, sideBarSvg } from "../assets"
+import URLInput from "./URLInput"
 
 const Hero = ({ onMenuClick }) => {
+	const dispatch = useDispatch()
 	const article = useSelector((state) => state.articles.currentArticle)[0]
 	return (
 		<div className="w-full h-full p-4 bg-[#F5F5F5] lg:rounded-2xl">
 			<div className="max-w-screen-sm mx-auto h-full flex flex-col items-center justify-end">
 
 				<div className="w-full pb-8 flex items-center justify-between  bg-[#F5F5F5]">
-					<img src={logoSvg} alt="Lynix" className="w-24 cursor-pointer" />
+					<img src={logoSvg} alt="Lynix" className="w-24 cursor-pointer" onClick={() => { dispatch(createNewArticle()) }} />
 					<img src={sideBarSvg} alt="=" className="w-6 cursor-pointer xl:hidden" onClick={onMenuClick} />
 				</div>
 
@@ -30,25 +33,7 @@ const Hero = ({ onMenuClick }) => {
 					)
 				}
 
-				<div className="w-full flex flex-col gap-4 items-center">
-					<form
-						onSubmit={() => { }}
-						className="w-full flex gap-4 bg-white px-4 py-1 rounded-lg shadow-xl"
-					>
-						<input
-							type="url"
-							placeholder="Paste the article link"
-							value={''}
-							onChange={() => { }}
-							required
-							className="flex-1 text-black-700 placeholder:text-white-700 outline-none bg-transparent peer"
-						/>
-						<button type="submit" className="px-4 py-3 border border-transparent rounded-md transition-all peer-focus:border-white-700">
-							<img src={returnSvg} alt="↩" className="w-4" />
-						</button>
-					</form>
-					<p className="text-xs md:text-sm font-medium text-black-500 text-center">Login to save data and sync across devices</p>
-				</div>
+				<URLInput />
 
 			</div>
 		</div>
