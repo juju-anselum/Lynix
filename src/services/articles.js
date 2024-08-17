@@ -5,6 +5,8 @@ export const articlesSlice = createSlice({
 	initialState: {
 		allArticles: [],
 		currentArticle: {},
+		isFetching: false,
+		error: '',
 	},
 	reducers: {
 		fetchArticles: (state) => {
@@ -12,24 +14,30 @@ export const articlesSlice = createSlice({
 			state.allArticles = allArticles || [];
 		},
 		setCurrentArticle: (state, action) => {
-			state.currentArticle = state.allArticles.filter(
-				(article) => article.url === action.payload
-			)
+			state.currentArticle = action.payload;
 		},
 		addArticle: (state, action) => {
-			state.allArticles.push(action.payload);
+			state.allArticles.unshift(action.payload);
+			state.currentArticle = action.payload;
 			localStorage.setItem("articles", JSON.stringify(state.allArticles));
 		},
 		deleteArticle: (state, action) => {
 			state.allArticles = state.allArticles.filter(
 				(article) => article.url !== action.payload
 			);
+			state.currentArticle = {};
 			localStorage.setItem("articles", JSON.stringify(state.allArticles));
 		},
 		createNewArticle: (state) => {
-			state.currentArticle = {}
+			state.currentArticle = {};
+		},
+		updateIsFetching: (state, action) => {
+			state.isFetching = action.payload;
+		},
+		updateError: (state, action) => {
+			state.error = action.payload;
 		}
-	},
+	}
 });
 
 export const {
@@ -37,7 +45,9 @@ export const {
 	setCurrentArticle,
 	addArticle,
 	deleteArticle,
-	createNewArticle
+	createNewArticle,
+	updateIsFetching,
+	updateError
 } = articlesSlice.actions;
 
 export default articlesSlice.reducer;

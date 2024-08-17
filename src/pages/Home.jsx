@@ -11,13 +11,15 @@ const Home = () => {
 	return (
 		<div className='w-full h-dvh max-h-dvh flex items-stretch justify-stretch'>
 			{/* Mobile and Tablet */}
-			<div className='w-[50%] lg:w-[30%] h-full absolute xl:hidden'>
-				{isNav && <SideBar onMenuClick={toggleNav} />}
-			</div>
-
+			{
+				isNav &&
+				<div className='w-[50%] lg:w-[30%] h-full absolute xl:hidden'>
+					<SideBar onMenuClick={toggleNav} isNav={isNav} />
+				</div>
+			}
 			{/* Pc */}
 			<div className={`w-2/12 max-w-[300px] h-full hidden xl:block`}>
-				<SideBar onMenuClick={toggleNav} />
+				<SideBar onMenuClick={toggleNav} isNav={isNav} />
 			</div>
 
 			<div className='flex-1 h-full p-0 lg:p-4'>
