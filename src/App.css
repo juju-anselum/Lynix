@@ -2,16 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply font-work-sans;
+}
 
 .main {
   width: 100vw;
-  min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-image: linear-gradient(180deg, hsl(240, 60%, 93%) 0%, hsl(9, 59%, 93%) 100%);
+  background-image: linear-gradient(180deg, hsl(240, 76%, 89%) 0%, hsl(9, 83%, 89%) 100%);
 }
 
 .main:after {
@@ -28,9 +30,9 @@
 
 .gradient_text {
   background-image: linear-gradient(to bottom right,
-      #aa7065 20%,
-      #795048 50%,
-      #aa7065 80%);
+      #aa7065 30%,
+      #996459 50%,
+      #aa7065 70%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

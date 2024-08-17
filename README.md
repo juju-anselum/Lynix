@@ -1,6 +1,6 @@
-# Snapify
+# Lynix
 
-**Snapify** is an AI-powered web application that allows users to instantly summarize lengthy articles by simply entering the URL. This tool leverages the power of GPT-4 to condense content into concise, easy-to-read summaries, enhancing your reading experience by saving time and effort.
+**Lynix** is an AI-powered web application that allows users to instantly summarize lengthy articles by simply entering the URL. This tool leverages the power of GPT-4 to condense content into concise, easy-to-read summaries, enhancing your reading experience by saving time and effort.
 
 ## Features
 
@@ -25,7 +25,7 @@ Make sure you have the following installed on your system:
 
    ```bash
    git clone https://github.com/juju-anselum/Sanpify.git
-   cd snapify
+   cd Lynix
    ```
 
 2. **Install Dependencies**
@@ -109,7 +109,7 @@ This will serve the content from the `dist` folder on a local server, allowing y
 Here's a quick overview of the project's structure:
 
 ```
-snapify/
+Lynix/
 │
 ├── src/                # Source code
 │   ├── assets/         # Images, icons, etc.

@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        satoshi: ['Satoshi', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        'lora': ['Lora', 'serif'],
+        'work-sans': ['Work Sans', 'sans-serif'],
       },
       colors: {
         'primaryColor': '#e3e3f8',
