@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLazyGetSummaryQuery } from "../services/summarizeAPI";
-import { addArticle, setCurrentArticle, updateError, updateIsFetching } from "../services/articles";
+import { useLazyGetSummaryQuery } from "../services/slices/summarizeAPI";
+import { addArticle, setCurrentArticle, updateError, updateIsFetching } from "../services/slices/articles";
 import { returnSvg } from "../assets";
 
 const URLInput = () => {

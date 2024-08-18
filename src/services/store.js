@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { summarizeAPI } from "./summarizeAPI";
-import articlesReducer from "../services/articles";
+import { summarizeAPI } from "./slices/summarizeAPI";
+import articlesReducer from "../services/slices/articles";
 
 const store = configureStore({
 	reducer: {

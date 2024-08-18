@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { createNewArticle } from "../services/articles"
+import { createNewArticle } from "../services/slices/articles"
 import { loaderSvg, logo, logoSvg, sideBarSvg } from "../assets"
 import URLInput from "./URLInput"
 

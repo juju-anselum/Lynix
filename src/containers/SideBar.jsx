@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react'
 import { newChatSvg, logo, deleteSvg } from '../assets'
 import { PrimaryButton } from '../components'
+import { useNavigate } from 'react-router-dom'
 
-import { createNewArticle, deleteArticle, fetchArticles, setCurrentArticle } from '../services/articles'
+import { createNewArticle, deleteArticle, fetchArticles, setCurrentArticle } from '../services/slices/articles'
 import { useSelector, useDispatch } from 'react-redux'
 
 const SideBar = ({ onMenuClick, isNav }) => {
+	const navigate = useNavigate()
 	const sideBarRef = useRef()
 
 	const dispatch = useDispatch();
@@ -65,7 +67,7 @@ const SideBar = ({ onMenuClick, isNav }) => {
 			</div>
 
 			<div className="w-full">
-				<PrimaryButton text='Login' />
+				<PrimaryButton text='Login' onClick={() => { navigate('/login') }}/>
 			</div>
 
 		</div>
