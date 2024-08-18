@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile } from 'firebase/auth';
 import { auth } from '../services/auth/firebaseApi';
 import { toast } from 'react-toastify';
 
@@ -50,13 +50,10 @@ const SignUp = () => {
 		try {
 			const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 			const user = userCredential.user;
+			await updateProfile(user, { displayName: userName });
 
 			if (user) {
-				toast('Signed Up Successfully.', {
-					type: 'success',
-					position: 'top-center',
-					autoClose: 1000,
-				})
+				toast.success('Signed Up Successfully.')
 				setTimeout(() => {
 					setUserName('');
 					setEmail('');
@@ -93,20 +90,12 @@ const SignUp = () => {
 			const userCredential = await signInWithPopup(auth, new GoogleAuthProvider());
 			const user = userCredential.user;
 			if (user) {
-				toast('Signed In Successfully.', {
-					type: 'success',
-					position: 'top-center',
-					autoClose: 1000,
-				})
+				toast.success('Signed In Successfully.')
 				navigate('/');
 			}
 		} catch (error) {
 			console.log(error);
-			toast('Sign In failed. Please try again later.', {
-				type: 'error',
-				position: 'top-center',
-				autoClose: 1000,
-			})
+			toast.error('Sign In failed. Please try again later.')
 		}
 	};
 
