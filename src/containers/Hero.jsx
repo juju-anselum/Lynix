@@ -6,7 +6,7 @@ import URLInput from "./URLInput"
 const Hero = ({ onMenuClick }) => {
 	const dispatch = useDispatch()
 	const article = useSelector((state) => state.articles.currentArticle)
-	const isFetching = useSelector((state) => state.articles.isFetching)
+	const isSummarizing = useSelector((state) => state.articles.isSummarizing)
 	const error = useSelector((state) => state.articles.error)
 	return (
 		<div className="w-full h-full p-4 bg-[#F5F5F5] lg:rounded-2xl">
@@ -26,7 +26,7 @@ const Hero = ({ onMenuClick }) => {
 							</div>
 							<p className="w-full h-max pl-12 text-base leading-relaxed text-black-500">{article?.summary}</p>
 						</div>
-					) : isFetching ? (
+					) : isSummarizing ? (
 						<div className="w-full flex-1 py-4 flex items-center justify-center">
 							<img src={loaderSvg} alt="Loading..." className="w-16" />
 						</div>

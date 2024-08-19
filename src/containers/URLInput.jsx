@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLazyGetSummaryQuery } from "../services/slices/summarizeAPI";
-import { addArticle, setCurrentArticle, updateError, updateIsFetching } from "../services/slices/articles";
+import { addArticle, setCurrentArticle, updateError, updateIsSummarizing } from "../services/slices/articles";
 import { returnSvg } from "../assets";
+import { auth } from "../services/auth/firebaseApi";
 
 const URLInput = () => {
 	const dispatch = useDispatch();
@@ -54,12 +55,12 @@ const URLInput = () => {
 
 
 	useEffect(() => {
-		dispatch(updateIsFetching(isFetching))
+		dispatch(updateIsSummarizing(isFetching))
 	}, [isFetching, dispatch])
 
 	useEffect(() => {
 		dispatch(updateError(error))
-	}, [error])
+	}, [error, dispatch])
 
 	return (
 		<div className="w-full flex flex-col gap-4 items-center">
@@ -84,7 +85,10 @@ const URLInput = () => {
 					<img src={returnSvg} alt="↩" className="w-4" />
 				</button>
 			</form>
-			<p className="text-xs md:text-sm font-medium text-[#777777] text-center">Login to save data and sync across devices</p>
+			{
+				auth.currentUser ? null :
+					<p className="text-xs md:text-sm font-medium text-[#777777] text-center">Login to save data and sync across devices</p>
+			}
 		</div>
 	);
 };

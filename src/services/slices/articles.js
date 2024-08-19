@@ -6,30 +6,36 @@ export const articlesSlice = createSlice({
 		allArticles: [],
 		currentArticle: {},
 		isFetching: false,
+		isSummarizing: false,
+		isUpdating: false,
 		error: '',
 	},
 	reducers: {
-		fetchArticles: (state) => {
-			const allArticles = JSON.parse(localStorage.getItem("articles"));
-			state.allArticles = allArticles || [];
-		},
 		setCurrentArticle: (state, action) => {
-			state.currentArticle = action.payload;
+			if (action.payload === null)
+				state.currentArticle = {};
+			else
+				state.currentArticle = action.payload;
+		},
+		setAllArticles: (state, action) => {
+			console.log('payload for setAllArticles: ', action.payload);
+			state.allArticles = action.payload;
 		},
 		addArticle: (state, action) => {
 			state.allArticles.unshift(action.payload);
 			state.currentArticle = action.payload;
-			localStorage.setItem("articles", JSON.stringify(state.allArticles));
 		},
 		deleteArticle: (state, action) => {
 			state.allArticles = state.allArticles.filter(
 				(article) => article.url !== action.payload
 			);
 			state.currentArticle = {};
-			localStorage.setItem("articles", JSON.stringify(state.allArticles));
 		},
 		createNewArticle: (state) => {
 			state.currentArticle = {};
+		},
+		updateIsSummarizing: (state, action) => {
+			state.isSummarizing = action.payload;
 		},
 		updateIsFetching: (state, action) => {
 			state.isFetching = action.payload;
@@ -41,11 +47,12 @@ export const articlesSlice = createSlice({
 });
 
 export const {
-	fetchArticles,
 	setCurrentArticle,
+	setAllArticles,
 	addArticle,
 	deleteArticle,
 	createNewArticle,
+	updateIsSummarizing,
 	updateIsFetching,
 	updateError
 } = articlesSlice.actions;
