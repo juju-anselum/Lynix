@@ -15,17 +15,6 @@ const URLInput = () => {
 
 
 	const fetchTitle = async (url) => {
-		try {
-			const response = await fetch(url);
-			const text = await response.text();
-			const parser = new DOMParser();
-			const doc = parser.parseFromString(text, 'text/html');
-			console.log('text: ', text)
-			const title = doc.querySelector('title').textContent;
-			if (title) return title
-		} catch (e) {
-			console.log(e);
-		}
 		const hostname = new URL(url).hostname;
 		const websiteName = hostname.split('.')[1];
 		return websiteName ? websiteName : hostname;

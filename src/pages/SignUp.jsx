@@ -93,8 +93,7 @@ const SignUp = () => {
 				toast.success('Signed In Successfully.')
 				navigate('/');
 			}
-		} catch (error) {
-			console.log(error);
+		} catch (e) {
 			toast.error('Sign In failed. Please try again later.')
 		}
 	};

@@ -23,8 +23,6 @@ const SideBar = () => {
 					const docSnap = await getDoc(docRef);
 					if (docSnap.exists()) {
 						dispatch(setAllArticles(docSnap.data().articles || []))
-					} else {
-						console.log('No such document!');
 					}
 				} catch (error) {
 					console.error('Error fetching articles:', error);
@@ -41,7 +39,7 @@ const SideBar = () => {
 				const docRef = doc(db, 'articles', user.uid);
 				await setDoc(docRef, { 'articles': allArticles });
 			} catch (error) {
-				console.log(error);
+				console.log('Error updating to database.');
 			}
 		}
 	}

@@ -18,7 +18,6 @@ export const articlesSlice = createSlice({
 				state.currentArticle = action.payload;
 		},
 		setAllArticles: (state, action) => {
-			console.log('payload for setAllArticles: ', action.payload);
 			state.allArticles = action.payload;
 		},
 		addArticle: (state, action) => {

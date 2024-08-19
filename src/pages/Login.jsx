@@ -91,7 +91,6 @@ const Login = () => {
 				}, 1000);
 			}
 		} catch (e) {
-			console.log(e);
 			toast.error('Login failed. Please try again later.')
 		}
 	};
