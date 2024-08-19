@@ -5,8 +5,10 @@
 ## Features
 
 - **URL-based Summarization**: Enter a URL to get a quick summary of the article's content.
-- **Responsive Design**: User-friendly interface, accessible on both desktop and mobile devices.
+- **Sync across Devices**: Sync your summaries across multiple devices.
 - **Real-Time Updates**: Instant updates as you type, ensuring smooth and dynamic user interaction.
+- **Customizable Summaries**: Create and delete summaries.
+- **Responsive Design**: User-friendly interface, accessible on both desktop and mobile devices.
 
 ## Installation
 
@@ -24,8 +26,8 @@ Make sure you have the following installed on your system:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/juju-anselum/Sanpify.git
-   cd Lynix
+   git clone https://github.com/juju-anselum/Lynix.git
+   cd lynix
    ```
 
 2. **Install Dependencies**
@@ -48,7 +50,9 @@ Make sure you have the following installed on your system:
    
    Get your rapidApi key from [Article Extractor and Summarizer](https://rapidapi.com/restyler/api/article-extractor-and-summarizer/playground/apiendpoint_99e4b95c-3adc-4532-8b4e-20795c3c996a)
 
-   Update the `VITE_RAPID_API_SUMMARIZE_API` key by your key.
+   Create a new firebase project and get your Firebase API key.
+
+   Update all the environment variables by your key.
 
 4. **Run the Development Server**
 
@@ -115,7 +119,7 @@ Lynix/
 │   ├── assets/         # Images, icons, etc.
 │   ├── components/     # Reusable components
 │   ├── containers/     # Containers for webpage
-│   ├── services/       # Redux services
+│   ├── services/       # Services for API and Firebase
 │   ├── App.jsx         # Root component
 │   └── main.jsx        # Entry point
 │  
