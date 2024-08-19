@@ -68,7 +68,7 @@ const SideBar = () => {
 				{allArticles?.map((article, i) => (
 					<div
 						key={i}
-						className={`w-full px-1 flex justify-between items-center rounded-md cursor-pointer group hover:bg-[rgba(30,30,30,0.08)] ${currentArticle[0]?.url === article.url ? 'bg-[rgba(30,30,30,0.12)]' : 'bg-transparent'}`}
+						className={`w-full px-1 flex justify-between items-center rounded-md cursor-pointer group hover:bg-[rgba(30,30,30,0.08)] ${currentArticle?.url === article.url ? 'bg-[rgba(30,30,30,0.12)]' : 'bg-transparent'}`}
 						onClick={() => { dispatch(setCurrentArticle(article)) }}
 					>
 						<p className='w-[70%] flex-1 text-base lg:text-lg p-2 overflow-clip whitespace-nowrap'>{article?.title ? article.title : article.url}</p>
